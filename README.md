@@ -1,11 +1,11 @@
-# Advent of Code Typescript Starter
+Advent of Code Typescript Starter
 
 A template for [Advent of Code](https://adventofcode.com) written in Typescript with Node.
 
 ## Usage
 
-The project use [Node.js](https://nodejs.org) as javascript runtime, [esbuild](https://esbuild.github.io)
-as typescript transpiler and [swc](https://swc.rs) with [Jest](https://jestjs.io) for testing.
+The project uses [Node.js](https://nodejs.org) for the javascript runtime, [esbuild](https://esbuild.github.io)
+as the typescript transpiler and [swc](https://swc.rs) with [Jest](https://jestjs.io) for testing.
 
     $ git clone https://github.com/ljgago/advent-of-code-typescript-starter aoc-typescript
     $ cd aoc-typescript
@@ -24,12 +24,11 @@ as typescript transpiler and [swc](https://swc.rs) with [Jest](https://jestjs.io
 
 ## Generate
 
-You can generate all necesary files for use in the event with a simple
-command:
+You can generate all necessary files for use in the event with a simple command:
 
     $ npm run gen day01
 
-This command generate these files:
+This command generates these files:
 
     * creating src/day01/resources/input.txt
     * creating src/day01/index.ts
@@ -49,13 +48,13 @@ This command generate these files:
 
 ## Config
 
-You can configure the automatic input download from the Advent of Code
-session token.
+You can configure the automatic input download from Advent of Code by using your session token.
 
-For dowload the inputs from web, you needs to set the environment var
-`AOC_SESSION`. You can to get the session token from the cookie web browser.
+To download the inputs from web, you need to set the environment var `AOC_SESSION`.
+You can to get the session token from the cookie web browser.
 
 Also can you set the `AOC_YEAR` to select a certain year.
+
 (It is not mandatory use the `AOC_YEAR`, the `npm run gen` can get the year automatically)
 
 You can set an `.env` file with these variables.
