@@ -1,5 +1,7 @@
 Advent of Code Typescript Starter
 
+[![Test Report](https://github.com/nesvand/aoc2022/actions/workflows/test-report.yml/badge.svg)](https://github.com/nesvand/aoc2022/actions/workflows/test-report.yml)
+
 A template for [Advent of Code](https://adventofcode.com) written in Typescript with Node.
 
 ## Usage
