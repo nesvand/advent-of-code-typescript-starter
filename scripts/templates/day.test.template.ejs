@@ -1,11 +1,23 @@
 // Advent of Code - Day <%= data.dayNumber %>
 
+import { readFileSync } from 'fs';
+
+// const input: string = readFileSync('src/<%= data.dayName %>/resources/input.txt', 'utf8');
+
 import { part1, part2 } from '../src/<%= data.dayName %>';
 
 test('part one test', () => {
-  expect(part1("")).toBe(0);
+  expect(part1(``)).toBe(0);
 });
 
+// test('part one answer', () => {
+//   expect(part1(input)).toBe(0);
+// });
+
 test('part two test', () => {
-  expect(part2("")).toBe(0);
+  expect(part2(``)).toBe(0);
 });
+
+// test('part two answer', () => {
+//   expect(part2(input)).toBe(0);
+// });
