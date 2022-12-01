@@ -16,7 +16,7 @@ jobs:
           node-version: 18.x
           cache: 'npm'
       - run: npm ci
-      - run: npm coverage
+      - run: npm run coverage
       - uses: actions/upload-artifact@v2
         if: success() || failure()
         with:
