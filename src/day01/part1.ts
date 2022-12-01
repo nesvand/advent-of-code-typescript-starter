@@ -1,23 +1,14 @@
 // Advent of Code - Day 1 - Part One
 
 export function sortedElfCalories(input: string): number[] {
-  let i = 0;
   return input
-    .split('\n')
-    .reduce((map, calories) => {
-      const cal = parseInt(calories, 10);
-      if (Number.isNaN(cal)) {
-        i++;
-        return map;
-      }
-      map[i] = (map[i] ?? 0) + cal;
-      return map;
-    }, [] as number[])
-    .sort((a, b) => a - b);
+    .split('\n\n')
+    .reduce((elfCalories, elf) => (elfCalories.push(elf.split('\n').reduce((sum, calories) => sum + parseInt(calories, 10), 0)), elfCalories), [] as number[])
+    .sort((a, b) => b - a);
 }
 
 export function part1(input: string): number {
   const elfCalories = sortedElfCalories(input);
 
-  return elfCalories[elfCalories.length - 1];
+  return elfCalories[0];
 }
