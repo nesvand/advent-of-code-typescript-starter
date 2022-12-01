@@ -2,7 +2,7 @@
 
 DAY=$1
 if [ -z $DAY ]; then
-    jest --passWithNoTests ./test/
+    jest --
 else
-    jest --passWithNoTests ./test/${DAY}.test.ts
+    jest ./test/${DAY}.test.ts
 fi

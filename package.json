@@ -5,6 +5,7 @@
   "scripts": {
     "start": "./scripts/start.sh",
     "test": "./scripts/test.sh",
+    "coverage": "jest --collectCoverage --",
     "lint": "./scripts/lint.sh",
     "gen": "./scripts/gen.sh"
   },
