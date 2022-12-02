@@ -6,7 +6,7 @@ export enum Opponent {
   Scissors,
 }
 
- export const OpponentMap: Record<string, Opponent> = { A: Opponent.Rock, B: Opponent.Paper, C: Opponent.Scissors };
+export const OpponentMap: Record<string, Opponent> = { A: Opponent.Rock, B: Opponent.Paper, C: Opponent.Scissors };
 
 export enum You {
   Rock,
@@ -36,11 +36,16 @@ export const GameStateMap: Record<string, GameState> = {
   [`${Opponent.Scissors}, ${You.Scissors}`]: GameState.Draw,
   [`${Opponent.Scissors}, ${You.Rock}`]: GameState.Win,
   [`${Opponent.Scissors}, ${You.Paper}`]: GameState.Lose,
-}
+};
 
 export function part1(input: string): number {
-  return input.split('\n').filter(Boolean).map((game) => {
-    const [opp, you] = game.split(' ');
-    return [GameStateMap[`${OpponentMap[opp]}, ${YouMap[you]}`], YouMap[you]];
-  }).map(([gameState, you]) => GameStateScoreMap[gameState] + YouScoreMap[you]).reduce((a, b) => a + b, 0);
+  return input
+    .split('\n')
+    .filter(Boolean)
+    .map(game => {
+      const [opp, you] = game.split(' ');
+      return [GameStateMap[`${OpponentMap[opp]}, ${YouMap[you]}`], YouMap[you]];
+    })
+    .map(([gameState, you]) => GameStateScoreMap[gameState] + YouScoreMap[you])
+    .reduce((a, b) => a + b, 0);
 }
