@@ -2,7 +2,12 @@
 
 import { readFileSync } from 'fs';
 
-const input: string = readFileSync('src/day05/resources/input.txt', 'utf8');
+let input = '';
+try {
+  input = readFileSync('src/day01/resources/input.txt', 'utf8');
+} catch (e) {
+  // ignore
+}
 
 import { part1, part2 } from '../src/day05';
 
@@ -21,9 +26,11 @@ move 1 from 1 to 2
   ).toBe('CMZ');
 });
 
-test('part one answer', () => {
-  expect(part1(input)).toBe('MQTPGLLDN');
-});
+if (input) {
+  test('part one answer', () => {
+    expect(part1(input)).toBe('MQTPGLLDN');
+  });
+}
 
 test('part two test', () => {
   expect(
@@ -40,6 +47,8 @@ move 1 from 1 to 2
   ).toBe('MCD');
 });
 
-test('part two answer', () => {
-  expect(part2(input)).toBe('LVZPSTTCZ');
-});
+if (input) {
+  test('part two answer', () => {
+    expect(part2(input)).toBe('LVZPSTTCZ');
+  });
+}

@@ -3,7 +3,12 @@
 import { part1, part2 } from '../src/day01';
 import { readFileSync } from 'fs';
 
-const input: string = readFileSync('src/day01/resources/input.txt', 'utf8');
+let input = '';
+try {
+  input = readFileSync('src/day01/resources/input.txt', 'utf8');
+} catch (e) {
+  // ignore
+}
 
 test('part one test', () => {
   expect(
@@ -24,9 +29,11 @@ test('part one test', () => {
   ).toBe(24000);
 });
 
-test('part one answer', () => {
-  expect(part1(input)).toBe(72602);
-});
+if (input) {
+  test('part one answer', () => {
+    expect(part1(input)).toBe(72602);
+  });
+}
 
 test('part two test', () => {
   expect(
@@ -47,6 +54,8 @@ test('part two test', () => {
   ).toBe(45000);
 });
 
-test('part two answer', () => {
-  expect(part2(input)).toBe(207410);
-});
+if (input) {
+  test('part two answer', () => {
+    expect(part2(input)).toBe(207410);
+  });
+}
