@@ -119,3 +119,6 @@ dist
 
 # Jetbrains IDE
 .idea/
+
+# Don't commit inputs
+src/**/resources/input.txt
