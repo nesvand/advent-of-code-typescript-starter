@@ -46,7 +46,10 @@
     "titleTemplate": "{title}"
   },
   "dependencies": {
+    "@dagrejs/graphlib": "^2.1.4",
+    "@types/graphlib": "^2.1.8",
     "@types/lodash": "^4.14.191",
+    "graphlib": "^2.1.8",
     "heap-js": "^2.2.0",
     "lodash": "^4.17.21"
   }
