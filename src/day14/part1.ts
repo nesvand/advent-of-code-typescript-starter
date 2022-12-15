@@ -1,59 +1,53 @@
 // Advent of Code - Day 14 - Part One
 
-export function parseInput(input: string): { rockPaths: Set<string>; lowestY: number } {
+import { Input, f } from '../../lib/advent';
+
+export function parseInput(input: Input): { rockPaths: Set<string>; lowestY: number } {
   const rockPaths = new Set<string>();
   let lowestY = Number.MIN_SAFE_INTEGER;
 
-  input
-    .trim()
-    .split('\n')
-    .filter(Boolean)
-    .map(line =>
-      line
-        .trim()
-        .split(' -> ')
-        .map(vertex => {
-          const [x, y] = vertex.split(',').map(v => Number(v));
-
-          if (y > lowestY) lowestY = y;
-
-          return { x, y };
-        })
+  const mappedRockPaths = input.parse(
+    f.split(
+      '\n',
+      f.split(' -> ', line => {
+        const result = f.split(',', f.num())(line);
+        if (result[1] > lowestY) lowestY = result[1];
+        return result;
+      })
     )
-    .forEach(rockLine => {
-      // console.log(rockLine);
-      for (const [i, vertex] of rockLine.entries()) {
-        const nextVertex = rockLine[i + 1];
-        if (!nextVertex) continue;
+  );
 
-        const dx = nextVertex.x - vertex.x;
-        const dy = nextVertex.y - vertex.y;
-        // console.log(dx, dy);
+  for (const rockPath of mappedRockPaths) {
+    for (const [i, [ax, ay]] of rockPath.entries()) {
+      const nextVertex = rockPath[i + 1];
+      if (!nextVertex) continue;
+      const [bx, by] = nextVertex;
 
-        if (dx !== 0) {
-          const y = vertex.y;
-          const neg = dx < 0;
-          for (let x = neg ? nextVertex.x : vertex.x; x <= (neg ? vertex.x : nextVertex.x); x++) {
-            rockPaths.add(`${x},${y}`);
-          }
-          continue;
+      const dx = bx - ax;
+      const dy = by - ay;
+
+      if (dx !== 0) {
+        const neg = dx < 0;
+        for (let x = neg ? bx : ax; x <= (neg ? ax : bx); x++) {
+          rockPaths.add(`${x},${ay}`);
         }
-
-        if (dy !== 0) {
-          const x = vertex.x;
-          const neg = dy < 0;
-          for (let y = neg ? nextVertex.y : vertex.y; y <= (neg ? vertex.y : nextVertex.y); y++) {
-            rockPaths.add(`${x},${y}`);
-          }
-          continue;
-        }
+        continue;
       }
-    });
+
+      if (dy !== 0) {
+        const neg = dy < 0;
+        for (let y = neg ? by : ay; y <= (neg ? ay : by); y++) {
+          rockPaths.add(`${ax},${y}`);
+        }
+        continue;
+      }
+    }
+  }
 
   return { rockPaths, lowestY };
 }
 
-export function part1(input: string): number {
+export function part1(input: Input): number {
   const { rockPaths, lowestY } = parseInput(input);
   const settledSand = new Set<string>();
   let done = false;
