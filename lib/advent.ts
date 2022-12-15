@@ -1,6 +1,7 @@
 import * as f from './f';
+import { fm } from './fm';
 
-export { f };
+export { f, fm };
 export const int = (x: string): number => parseInt(x, 10);
 export const num = (x: string): number => parseFloat(x);
 export const str = (x: any): string => x.toString();

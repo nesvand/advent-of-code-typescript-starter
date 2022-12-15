@@ -1,3 +1,5 @@
+import { FM } from './fm';
+
 export type Parser<T> = (input: string) => T;
 
 export const str = (): Parser<string> => (input: string) => input;
@@ -29,3 +31,27 @@ export const dis =
   };
 export const dGrid = (): Parser<number[][]> => nl(split('', int()));
 export const cGrid = (): Parser<string[][]> => nl(chrs());
+
+export function match<T>(parts: TemplateStringsArray, ...fms: FM<T>[]) {
+  let regex = '';
+  for (const [i, part] of parts.entries()) {
+    regex += part;
+    const fm: FM<T> = fms[i];
+    if (fm) {
+      regex += fm.regex;
+    }
+  }
+
+  return (input: string) => {
+    const matches = input.match(new RegExp(regex));
+    if (!matches) throw new EvalError('No matches found for input');
+
+    const res: Record<string, T> = {};
+    for (const [i, match] of matches.slice(1, fms.length + 1).entries()) {
+      const fm = fms[i];
+      res[fm.fieldName] = fm.parser(match);
+    }
+
+    return res;
+  };
+}
