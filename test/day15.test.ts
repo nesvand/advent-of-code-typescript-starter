@@ -2,12 +2,12 @@
 
 import { readFileSync } from 'fs';
 
-// let input = '';
-// try {
-//   input = readFileSync('src/day15/resources/input.txt', 'utf8');
-// } catch (e) {
-//   // ignore
-// }
+let input = '';
+try {
+  input = readFileSync('src/day15/resources/input.txt', 'utf8');
+} catch (e) {
+  // ignore
+}
 
 import { part1, part2 } from '../src/day15';
 
@@ -28,16 +28,17 @@ Sensor at x=17, y=20: closest beacon is at x=21, y=22
 Sensor at x=16, y=7: closest beacon is at x=15, y=3
 Sensor at x=14, y=3: closest beacon is at x=15, y=3
 Sensor at x=20, y=1: closest beacon is at x=15, y=3
-`
+`,
+      10
     )
   ).toBe(26);
 });
 
-// if (input) {
-//   test('part one answer', () => {
-//     expect(part1(input)).toBe(0);
-//   });
-// }
+if (input) {
+  test('part one answer', () => {
+    expect(part1(input, 2_000_000)).toBe(5147333);
+  });
+}
 
 test('part two test', () => {
   expect(part2(``)).toBe(0);
