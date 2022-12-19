@@ -11,7 +11,7 @@ try {
 
 import { part1, part2 } from '../src/day15';
 
-test('part one test', () => {
+test.skip('part one test', () => {
   expect(
     part1(
       `Sensor at x=2, y=18: closest beacon is at x=-2, y=15
@@ -35,12 +35,12 @@ Sensor at x=20, y=1: closest beacon is at x=15, y=3
 });
 
 if (input) {
-  test('part one answer', () => {
-    expect(part1(input, 2_000_000)).toBe(5147333);
+  test.skip('part one answer', () => {
+    expect(part1(input, 2_000_000)).toBe(5_147_333);
   });
 }
 
-test('part two test', () => {
+test.skip('part two test', () => {
   expect(
     part2(
       `Sensor at x=2, y=18: closest beacon is at x=-2, y=15
@@ -57,14 +57,13 @@ Sensor at x=17, y=20: closest beacon is at x=21, y=22
 Sensor at x=16, y=7: closest beacon is at x=15, y=3
 Sensor at x=14, y=3: closest beacon is at x=15, y=3
 Sensor at x=20, y=1: closest beacon is at x=15, y=3
-`,
-      10
+`
     )
-  ).toBe(0);
+  ).toBe(56_000_011);
 });
 
-// if (input) {
-//   test('part two answer', () => {
-//     expect(part2(input)).toBe(0);
-//   });
-// }
+if (input) {
+  test.skip('part two answer', () => {
+    expect(part2(input)).toBe(13734006908372);
+  });
+}

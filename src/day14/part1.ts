@@ -1,21 +1,19 @@
 // Advent of Code - Day 14 - Part One
 
-import { Input, f } from '../../lib/advent';
-
-export function parseInput(input: Input): { rockPaths: Set<string>; lowestY: number } {
+export function parseInput(input: string): { rockPaths: Set<string>; lowestY: number } {
   const rockPaths = new Set<string>();
   let lowestY = Number.MIN_SAFE_INTEGER;
 
-  const mappedRockPaths = input.parse(
-    f.split(
-      '\n',
-      f.split(' -> ', line => {
-        const result = f.split(',', f.num())(line);
+  const mappedRockPaths = input
+    .split('\n')
+    .filter(Boolean)
+    .map(line =>
+      line.split(' -> ').map(path => {
+        const result = path.split(',').map(v => parseInt(v, 10));
         if (result[1] > lowestY) lowestY = result[1];
         return result;
       })
-    )
-  );
+    );
 
   for (const rockPath of mappedRockPaths) {
     for (const [i, [ax, ay]] of rockPath.entries()) {
@@ -47,7 +45,7 @@ export function parseInput(input: Input): { rockPaths: Set<string>; lowestY: num
   return { rockPaths, lowestY };
 }
 
-export function part1(input: Input): number {
+export function part1(input: string): number {
   const { rockPaths, lowestY } = parseInput(input);
   const settledSand = new Set<string>();
   let done = false;

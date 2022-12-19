@@ -1,9 +1,8 @@
 // Advent of Code - Day 14 - Part Two
 
-import { Input } from '../../lib/advent';
 import { parseInput } from './part1';
 
-export function part2(input: Input): number {
+export function part2(input: string): number {
   const { rockPaths, lowestY } = parseInput(input);
   const floor = lowestY + 2;
   const settledSand = new Set<string>();
