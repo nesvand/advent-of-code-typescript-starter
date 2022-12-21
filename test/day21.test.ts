@@ -59,8 +59,8 @@ hmdt: 32
   ).toBe(301);
 });
 
-// if (input) {
-//   test('part two answer', () => {
-//     expect(part2(input)).toBe(0);
-//   });
-// }
+if (input) {
+  test('part two answer', () => {
+    expect(part2(input)).toBe(3582317956029);
+  });
+}
