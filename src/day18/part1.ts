@@ -22,7 +22,11 @@ export class Point implements ValueObject {
   }
 
   hashCode(): number {
-    return this.x * 10_000 + this.y * 100 + this.z;
+    return this.x * 1_000_000 + this.y * 1_000 + this.z;
+  }
+  
+  toString(): string {
+    return `${this.x},${this.y},${this.z}`;
   }
 }
 

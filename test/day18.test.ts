@@ -42,11 +42,26 @@ if (input) {
 }
 
 test('part two test', () => {
-  expect(part2(``)).toBe(0);
+  expect(
+    part2(`2,2,2
+1,2,2
+3,2,2
+2,1,2
+2,3,2
+2,2,1
+2,2,3
+2,2,4
+2,2,6
+1,2,5
+3,2,5
+2,1,5
+2,3,5
+`)
+  ).toBe(58);
 });
 
-// if (input) {
-//   test('part two answer', () => {
-//     expect(part2(input)).toBe(0);
-//   });
-// }
+if (input) {
+  test('part two answer', () => {
+    expect(part2(input)).toBe(0);
+  });
+}
