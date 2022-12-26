@@ -51,6 +51,7 @@
     "@types/lodash": "^4.14.191",
     "graphlib": "^2.1.8",
     "heap-js": "^2.2.0",
+    "immutable": "^4.2.1",
     "lodash": "^4.17.21",
     "nerdamer": "^1.1.13"
   }
