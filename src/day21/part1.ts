@@ -1,6 +1,5 @@
 // Advent of Code - Day 21 - Part One
-
-import { isNumber } from 'lodash';
+import { isNumber } from 'remeda';
 
 export function parseInput(input: string): Map<string, string> {
   return new Map<string, string>(

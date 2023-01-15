@@ -1,12 +1,12 @@
 // Advent of Code - Day 6 - Part One
-
-import _ from 'lodash';
+import { uniq, flatten } from 'remeda';
 
 export const findUniqueChunkIndex = (buffer: string[][], size: number): number => {
   let start = 0;
   let end = size;
   while (end < buffer.length) {
-    if (_.union(...buffer.slice(start, end)).length < size) {
+    const union = uniq(flatten([...buffer.slice(start, end)]));
+    if (union.length < size) {
       start++;
       end++;
       continue;

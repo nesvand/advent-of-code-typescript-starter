@@ -1,6 +1,5 @@
 // Advent of Code - Day 10 - Part Two
-
-import _ from 'lodash';
+import { chunk } from 'remeda';
 
 import { inputToOpCode } from './part1';
 
@@ -38,8 +37,8 @@ export function part2(input: string): string {
     cycle++;
   }
 
-  const output = _.chunk(visualOutput, 40)
-    .map(chunk => chunk.join(''))
+  const output = chunk(visualOutput, 40)
+    .map(c => c.join(''))
     .join('\n');
 
   console.log(output);

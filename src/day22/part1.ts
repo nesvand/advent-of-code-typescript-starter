@@ -1,6 +1,5 @@
 // Advent of Code - Day 22 - Part One
-
-import { flatten, zip } from 'lodash';
+import { flatten, zip } from 'remeda';
 
 export type Map = Array<Array<string | null>>;
 
@@ -59,7 +58,7 @@ export const traverse = (map: Map, steps: Array<number | string>): { x: number; 
   // Sanity check
   if (typeof currPos?.x === 'undefined') throw new Error('startingPosition invalid');
 
-  for (const [i, step] of steps.entries()) {
+  for (const [, step] of steps.entries()) {
     // console.log(`currPos before step ${i}: ${step} :: `, JSON.stringify(currPos));
     if (typeof step !== 'number') {
       switch (step) {

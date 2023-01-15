@@ -1,6 +1,5 @@
 // Advent of Code - Day 4 - Part One
-
-import _ from 'lodash';
+import { intersection } from 'remeda';
 
 export function part1(input: string): number {
   return input
@@ -15,7 +14,7 @@ export function part1(input: string): number {
         }
         return assignments;
       });
-      const intersection = _.intersection(a, b);
-      return sum + (intersection.length === a.length || intersection.length === b.length ? 1 : 0);
+      const inter = intersection(a, b);
+      return sum + (inter.length === a.length || inter.length === b.length ? 1 : 0);
     }, 0);
 }
